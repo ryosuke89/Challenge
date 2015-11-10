@@ -1,0 +1,7 @@
+パソコンのスペック
+メモリ：4GB
+ハードディスク容量：452GB
+CPU：Intel(R) Celeron(R) 2980U
+CPUのクロック数：1.60GHz
+CPUのコア数：2
+グラフィックボード：Intel(R) HD Graphics
