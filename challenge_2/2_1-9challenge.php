@@ -34,14 +34,12 @@ $kakeru = 8;
 for($i=1; $i<20; $i++) {
    $kakeru = $kakeru * 8;
 }
-echo $kakeru;
-
-echo "<br>";
+echo $kakeru . "<br>";
 
 //‰Û‘è4
-$renketsu = 'A';
-for($i=0; $i<15; $i++) {
-   echo $renketsu . $renketsu;
+$moji = 'A';
+for($i=0; $i<30; $i++) {
+   echo $moji = $moji . 'A';
 }
 
 echo "<br>";
@@ -49,17 +47,17 @@ echo "<br>";
 //‰Û‘è5
 $sum = 0;
 for($i=0; $i<=100; $i++) {
-   echo $sum + $i;
+   $sum = $sum + $i;
 }
-
-echo "<br>";
+echo $sum . "<br>";
 
 //‰Û‘è6
 $key = 1000;
-while ($key < 100 ) {
+while ($key > 100 ) {
   switch($key) {
-     case 1000:
-       echo $key / 2; break;
+     case $key:
+       echo $key = $key / 2 . ',';
+       break;
   }
 }
 
