@@ -38,11 +38,11 @@ echo $kakeru . "<br>";
 
 //‰Û‘è4
 $moji = 'A';
-for($i=0; $i<30; $i++) {
-   echo $moji = $moji . 'A';
+for($i=0; $i<29; $i++) {
+   $moji = $moji . 'A';
 }
 
-echo "<br>";
+echo $moji . "<br>";
 
 //‰Û‘è5
 $sum = 0;
