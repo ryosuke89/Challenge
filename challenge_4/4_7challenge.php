@@ -1,0 +1,6 @@
+<?php
+
+$bunsyo = str_replace('l', '‚¢', '‚«‚åU‚Í‚Òl‚¦l‚¿‚Òl‚Ì‚­‚Ý‚±‚Ý‚©‚ñ‚·U‚Ì‚ª‚­‚µ‚ãU‚ð‚µ‚Äl‚Ü‚·');
+
+echo str_replace('U', '‚¤', $bunsyo);
+
