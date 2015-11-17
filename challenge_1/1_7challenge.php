@@ -20,7 +20,7 @@ echo $sougaku ."<br>";
 echo $sougaku / $kosuu ."<br>";
 
 //‡B
-if ($sougaku >= 3000 ) {
+if ($sougaku >= 3000 && $sougaku < 5000) {
 echo $sougaku * 0.04;
 } elseif ($sougaku >= 5000 ) {
 echo $sougaku * 0.05;
