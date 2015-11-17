@@ -3,12 +3,12 @@
 //開始
 $kaishi = date('Y-m-d H:i:s');
 $fp = fopen('kansuu.txt', 'w');
-fwrite($fp, "$kaishi" . ' 開始 ');
+fwrite($fp, "$kaishi" . ' 開始' . "\r\n");
 fclose($fp);
 
 //使用する関数：array_replace
-$data = array('a', 'b', 'c', 'd');
-$henkan = array(0 => 1, 3 => 3);
+$data = array(1, 2, 3, 4);
+$henkan = array(0 => 'a', 2 => 'c');
 $replace = array_replace($data, $henkan);
 
 echo $replace[0] ."<br>";
@@ -24,6 +24,7 @@ fclose($fp);
 
 //読み込み
 $fp = fopen('kansuu.txt', 'r');
-$file_txt = fgets($fp);
+while ($file_txt = fgets($fp)) {
+	echo $file_txt . "<br>";
+}
 fclose($fp);
-echo $file_txt;
