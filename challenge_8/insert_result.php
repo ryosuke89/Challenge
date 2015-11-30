@@ -3,7 +3,7 @@
 require "dbaccessUtil.php";
 session_start();
 
-//セッション
+//セッション取得
 if(empty($_SESSION['name'])){
 	$name_i_r = null;
 }else{
@@ -46,17 +46,19 @@ if(empty($_SESSION['comment'])){
 	$comment_i_r = $_SESSION['comment'];
 }
 
-$newDate_i_r = date('Y-m-d H:i');
 $birthday_i_r = $year_i_r . '-' . $month_i_r . '-' . $day_i_r;
+$newDate_i_r = date('Y-m-d H:i');
 
 //登録
-$sql_i_r = "insert into user_t values(null,:name,'$birthday_i_r',:tell,:type,:comment,'$newDate_i_r')";
+$sql_i_r = "insert into user_t values(null,:name,:birthday,:tell,:type,:comment,:newDate)";
 $query_i_r = $pdo_object->prepare($sql_i_r);
 
 $query_i_r -> bindvalue(':name',$name_i_r);
+$query_i_r -> bindvalue(':birthday',$birthday_i_r);
 $query_i_r -> bindvalue(':tell',$tell_i_r);
 $query_i_r -> bindvalue(':type',$type_i_r);
 $query_i_r -> bindvalue(':comment',$comment_i_r);
+$query_i_r -> bindvalue(':newDate',$newDate_i_r);
 
 if(empty($name_i_r) || empty($year_i_r) || empty($month_i_r) || empty($day_i_r) || empty($tell_i_r) || empty($type_i_r) || empty($comment_i_r)){
 }else{
@@ -64,13 +66,15 @@ if(empty($name_i_r) || empty($year_i_r) || empty($month_i_r) || empty($day_i_r) 
 }
 
 //表示
-$sql = "select * from user_t where name=:name and birthday='$birthday_i_r' and tell=:tell and type=:type and comment=:comment and '$newDate_i_r'";
+$sql = "select * from user_t where name=:name and birthday=:birthday and tell=:tell and type=:type and comment=:comment and newDate=:newDate";
 $query = $pdo_object->prepare($sql);
 
 $query -> bindvalue(':name',$name_i_r);
+$query -> bindvalue(':birthday',$birthday_i_r);
 $query -> bindvalue(':tell',$tell_i_r);
 $query -> bindvalue(':type',$type_i_r);
 $query -> bindvalue(':comment',$comment_i_r);
+$query -> bindvalue(':newDate',$newDate_i_r);
 
 if(empty($name_i_r) || empty($year_i_r) || empty($month_i_r) || empty($day_i_r) || empty($tell_i_r) || empty($type_i_r) || empty($comment_i_r)){
 }else{
