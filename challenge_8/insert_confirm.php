@@ -2,7 +2,7 @@
 
 session_start();
 
-//名前
+//POST取得
 if(empty($_POST['name'])){
 	$_SESSION['name'] = null;
 }else{
@@ -10,7 +10,6 @@ if(empty($_POST['name'])){
 	$name_i = $_SESSION['name'];
 }
 
-//生年月日：年
 if(empty($_POST['year'])){
 	$_SESSION['year'] = null;
 }else{
@@ -18,7 +17,6 @@ if(empty($_POST['year'])){
 	$year_i = $_SESSION['year'];
 }
 
-//生年月日：月
 if(empty($_POST['month'])){
 	$_SESSION['month'] = null;
 }else{
@@ -26,7 +24,6 @@ if(empty($_POST['month'])){
 	$month_i = $_SESSION['month'];
 }
 
-//生年月日：日
 if(empty($_POST['day'])){
 	$_SESSION['day'] = null;
 }else{
@@ -34,7 +31,6 @@ if(empty($_POST['day'])){
 	$day_i = $_SESSION['day'];
 }
 
-//電話番号
 if(empty($_POST['tell'])){
 	$_SESSION['tell'] = null;
 }else{
@@ -42,7 +38,6 @@ if(empty($_POST['tell'])){
 	$tell_i = $_SESSION['tell'];
 }
 
-//種別
 if(empty($_POST['type'])){
 	$_SESSION['type'] = null;
 }else{
@@ -50,7 +45,6 @@ if(empty($_POST['type'])){
 	$type_i = $_SESSION['type'];
 }
 
-//自己紹介
 if(empty($_POST['comment'])){
 	$_SESSION['comment'] = null;
 }else{
