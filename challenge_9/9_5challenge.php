@@ -13,10 +13,6 @@ class User{
 	}
 }
 
-$suzuki = new User();
-$suzuki->setUser(3, 25);
-$suzuki->echo_hensuu();
-
 class Hensuu extends User{
 	public function clear_hensuu(){
 		$this->userID = null;
