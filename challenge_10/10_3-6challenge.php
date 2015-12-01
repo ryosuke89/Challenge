@@ -10,9 +10,9 @@ abstract class base{
 //Humanクラス
 class Human extends base{
   private $table;
+  private $pdo_object;
   private $query;
-	private $pdo_object;
-	private $row;
+  private $row;
 
   //Humanクラス：データ取得の関数
   public function load(){
@@ -59,9 +59,9 @@ class Human extends base{
 //Stationクラス
 class Station extends base{
   private $table;
+  private $pdo_object;
   private $query;
-	private $pdo_object;
-	private $row;
+  private $row;
 
   //Stationクラス：データ取得の関数
   public function load(){
@@ -103,6 +103,7 @@ class Station extends base{
 $user = new Human();
 $user->load();
 $user->show();
+
 $station = new Station();
 $station->load();
 $station->show();
