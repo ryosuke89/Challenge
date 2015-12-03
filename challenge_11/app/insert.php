@@ -16,7 +16,7 @@ session_start();
     <form action="<?php echo INSERT_CONFIRM ?>" method="POST">
     名前:
     <!--課題4：名前にセッションを追加-->
-    <input type="text" name="name" value="<?php if(isset($_SESSION['name'])){echo $_SESSION['name']; unset($_SESSION['name']);}?>">
+    <input type="text" name="name" value="<?php if(isset($_POST['session'])){if(isset($_SESSION['name'])){echo $_SESSION['name']; unset($_SESSION['name']);}}?>">
     <br><br>
 
     生年月日:　
@@ -25,21 +25,21 @@ session_start();
         <option value="----">----</option>
         <?php
         for($i=1950; $i<=2010; $i++){ ?>
-        <option value="<?php echo $i;?>"<?php if(isset($_SESSION['year']) && $_SESSION['year'] == $i){?>selected<?php unset($_SESSION['year']);}?>><?php echo $i;?></option>
+        <option value="<?php echo $i;?>"<?php if(isset($_POST['session'])){if(isset($_SESSION['year']) && $_SESSION['year'] == $i){?>selected<?php unset($_SESSION['year']);}}?>><?php echo $i;?></option>
         <?php } ?>
     </select>年
     <select name="month">
         <option value="--">--</option>
         <?php
         for($i = 1; $i<=12; $i++){?>
-        <option value="<?php echo $i;?>"<?php if(isset($_SESSION['month']) && $_SESSION['month'] == $i){?>selected<?php unset($_SESSION['month']);}?>><?php echo $i;?></option>
+        <option value="<?php echo $i;?>"<?php if(isset($_POST['session'])){if(isset($_SESSION['month']) && $_SESSION['month'] == $i){?>selected<?php unset($_SESSION['month']);}}?>><?php echo $i;?></option>
         <?php } ;?>
     </select>月
     <select name="day">
         <option value="--">--</option>
         <?php
         for($i = 1; $i<=31; $i++){ ?>
-        <option value="<?php echo $i;?>"<?php if(isset($_SESSION['day']) && $_SESSION['day'] == $i){?>selected<?php unset($_SESSION['day']);}?>><?php echo $i;?></option>
+        <option value="<?php echo $i;?>"<?php if(isset($_POST['session'])){if(isset($_SESSION['day']) && $_SESSION['day'] == $i){?>selected<?php unset($_SESSION['day']);}}?>><?php echo $i;?></option>
         <?php } ?>
     </select>日
     <br><br>
@@ -47,20 +47,20 @@ session_start();
     <!--課題4：種別にセッションを追加-->
     種別:
     <br>
-    <input type="radio" name="type" value="1" <?php if(empty($_SESSION['type'])){?>checked<?php }elseif($_SESSION['type'] == "1"){echo 'checked'; unset($_SESSION['type']);}?>>エンジニア<br>
-    <input type="radio" name="type" value="2" <?php if(empty($_SESSION['type'])){}elseif($_SESSION['type'] == "2"){echo 'checked'; unset($_SESSION['type']);}?>>営業<br>
-    <input type="radio" name="type" value="3" <?php if(empty($_SESSION['type'])){}elseif($_SESSION['type'] == "3"){echo 'checked'; unset($_SESSION['type']);}?>>その他<br>
+    <input type="radio" name="type" value="1" <?php if(isset($_POST['session'])){if(isset($_SESSION['type']) && $_SESSION['type'] == "1"){echo 'checked'; unset($_SESSION['type']);}}?>>エンジニア<br>
+    <input type="radio" name="type" value="2" <?php if(isset($_POST['session'])){if(isset($_SESSION['type']) && $_SESSION['type'] == "2"){echo 'checked'; unset($_SESSION['type']);}}?>>営業<br>
+    <input type="radio" name="type" value="3" <?php if(isset($_POST['session'])){if(isset($_SESSION['type']) && $_SESSION['type'] == "3"){echo 'checked'; unset($_SESSION['type']);}}?>>その他<br>
     <br>
 
     <!--課題4：電話番号にセッションを追加-->
     電話番号:
-    <input type="text" name="tell" value="<?php if(isset($_SESSION['tell'])){echo $_SESSION['tell']; unset($_SESSION['tell']);}?>">
+    <input type="text" name="tell" value="<?php if(isset($_POST['session'])){if(isset($_SESSION['tell'])){echo $_SESSION['tell']; unset($_SESSION['tell']);}}?>">
     <br><br>
 
     <!--課題4：自己紹介にセッションを追加-->
     自己紹介文
     <br>
-    <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard" ><?php if(isset($_SESSION['comment'])){echo $_SESSION['comment']; unset($_SESSION['comment']);}?></textarea><br><br>
+    <textarea name="comment" rows=10 cols=50 style="resize:none" wrap="hard" ><?php if(isset($_POST['session'])){if(isset($_SESSION['comment'])){echo $_SESSION['comment']; unset($_SESSION['comment']);}}?></textarea><br><br>
 
     <input type="submit" name="btnSubmit" value="確認画面へ">
     </form>
