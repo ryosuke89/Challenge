@@ -68,6 +68,7 @@
           <input type="submit" name="yes" value="はい">
         </form>
         <form action="<?php echo INSERT ?>" method="POST">
+            <input type="hidden" name="session" value="1">
             <input type="submit" name="no" value="登録画面に戻る">
         </form>
 
@@ -148,6 +149,7 @@
 
         再度入力を行ってください
         <form action="<?php echo INSERT ?>" method="POST">
+            <input type="hidden" name="session" value="2">
             <input type="submit" name="no" value="登録画面に戻る">
         </form>
     <?php }?>
