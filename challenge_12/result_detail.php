@@ -29,7 +29,8 @@ require_once '../common/dbaccesUtil.php';
     <form action="<?php echo UPDATE; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
         <input type="submit" name="update" value="変更" style="width:100px">
     </form>
-    <form action="<?php echo DELETE; ?>" method="POST">
+    <!--delete.phpのURLに該当するuserIDを追加する処理を追加-->
+    <form action="<?php echo DELETE; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
         <input type="submit" name="delete" value="削除"style="width:100px">
     </form>
 
