@@ -10,10 +10,13 @@ require_once '../common/dbaccesUtil.php';
       <title>変更入力画面</title>
 </head>
 <body>
-    <form action="<?php echo UPDATE_RESULT ?>" method="POST">
     <?php
     $result = profile_detail($_GET['id']);
     ?>
+    <!--update_result.phpのURLに該当するuserIDを追加する処理を追加-->
+    <!--関数profile_detailの処理の後に移動-->
+    <form action="<?php echo UPDATE_RESULT; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
+
     名前:
     <input type="text" name="name" value="<?php echo $result[0]['name']; ?>">
     <br><br>
