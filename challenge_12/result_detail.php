@@ -26,7 +26,7 @@ require_once '../common/dbaccesUtil.php';
     登録日時:<?php echo date('Y年n月j日　G時i分s秒', strtotime($result[0]['newDate'])); ?><br>
 
     <!--update.phpのURLに該当するuserIDを追加する処理を追加-->
-    <form action="<?php echo UPDATE ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
+    <form action="<?php echo UPDATE; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
         <input type="submit" name="update" value="変更" style="width:100px">
     </form>
     <form action="<?php echo DELETE; ?>" method="POST">
