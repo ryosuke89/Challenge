@@ -88,13 +88,15 @@ function serch_profiles($name=null,$year=null,$type=null){
         $search_sql .= " WHERE name like :name";
         $flag = true;
     }
-    if(isset($year) && $flag = false){
+    //$flag = falseを$flag == falseに変更
+    if(isset($year) && $flag == false){
         $search_sql .= " WHERE birthday like :year";
         $flag = true;
     }else if(isset($year)){
         $search_sql .= " AND birthday like :year";
     }
-    if(isset($type) && $flag = false){
+    //$flag = falseを$flag == falseに変更
+    if(isset($type) && $flag == false){
         $search_sql .= " WHERE type = :type";
     }else if(isset($type)){
         $search_sql .= " AND type = :type";
@@ -103,9 +105,17 @@ function serch_profiles($name=null,$year=null,$type=null){
     //クエリとして用意
     $seatch_query = $search_db->prepare($search_sql);
 
-    $seatch_query->bindValue(':name','%'.$name.'%');
-    $seatch_query->bindValue(':year','%'.$year.'%');
-    $seatch_query->bindValue(':type',$type);
+    //入力がない場合にbindValueの処理が行われないように条件分岐を追加
+    if(!empty($name)){
+        $seatch_query->bindValue(':name','%'.$name.'%');
+    }
+    if(!empty($year)){
+        $seatch_query->bindValue(':year','%'.$year.'%');
+    }
+    if(!empty($type)){
+        $seatch_query->bindValue(':type',$type);
+    }
+
     //SQLを実行
     try{
         $seatch_query->execute();
@@ -148,7 +158,7 @@ function update_profile($id, $name, $birthday, $type, $tell, $comment){
     //db接続を確立
     $update_db = connect2MySQL();
 
-    $update_sql = "update user_t set name=:name,birthday=:birthday,tell=:tell,type=:type,comment=:comment,newDate=:newDate where userID=:id";
+    $update_sql = "UPDATE user_t SET name=:name,birthday=:birthday,tell=:tell,type=:type,comment=:comment,newDate=:newDate WHERE userID=:id";
 
     //現在時をdatetime型で取得
     $datetime =new DateTime();
@@ -182,7 +192,8 @@ function delete_profile($id){
     //db接続を確立
     $delete_db = connect2MySQL();
 
-    $delete_sql = "DELEtE * FROM user_t WHERE userID=:id";
+    //SQL文を修正
+    $delete_sql = "DELETE FROM user_t WHERE userID=:id";
 
     //クエリとして用意
     $delete_query = $delete_db->prepare($delete_sql);
