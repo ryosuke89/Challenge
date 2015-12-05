@@ -19,8 +19,18 @@ require_once '../common/dbaccesUtil.php';
                 <th>登録日時</th>
             </tr>
         <?php
+        //入力がない場合nullにする処理を追加
+        if(empty($_GET['name'])){
+            $_GET['name'] = null;
+        }
 
+        if(empty($_GET['year'])){
+            $_GET['year'] = null;
+        }
 
+        if(empty($_GET['type'])){
+            $_GET['type'] = null;
+        }
 
         $result = null;
         if(empty($_GET['name']) && empty($_GET['year']) && empty($_GET['type'])){
@@ -28,6 +38,7 @@ require_once '../common/dbaccesUtil.php';
         }else{
             $result = serch_profiles($_GET['name'],$_GET['year'],$_GET['type']);
         }
+
         foreach($result as $value){
         ?>
             <tr>
@@ -35,7 +46,7 @@ require_once '../common/dbaccesUtil.php';
                 <!--生年月日が表示されていたのを生年のみが表示されるように修正-->
                 <td><?php echo date('Y年', strtotime($value['birthday'])); ?></td>
                 <td><?php echo ex_typenum($value['type']); ?></td>
-                <td><?php echo date('Y年n月j日　G時i分s秒', strtotime($value['newDate']));; ?></td>
+                <td><?php echo date('Y年n月j日　G時i分s秒', strtotime($value['newDate'])); ?></td>
             </tr>
         <?php
         }
