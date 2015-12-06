@@ -11,13 +11,6 @@ require_once '../common/dbaccesUtil.php';
 </head>
     <body>
         <h1>検索結果</h1>
-        <table border=1>
-            <tr>
-                <th>名前</th>
-                <th>生年</th>
-                <th>種別</th>
-                <th>登録日時</th>
-            </tr>
         <?php
         //入力がない場合nullにする処理を追加
         if(empty($_GET['name'])){
@@ -39,16 +32,32 @@ require_once '../common/dbaccesUtil.php';
             $result = serch_profiles($_GET['name'],$_GET['year'],$_GET['type']);
         }
 
-        foreach($result as $value){
-        ?>
-            <tr>
-                <td><a href="<?php echo RESULT_DETAIL ?>?id=<?php echo $value['userID']?>"><?php echo $value['name']; ?></a></td>
-                <!--生年月日が表示されていたのを生年のみが表示されるように修正-->
-                <td><?php echo date('Y年', strtotime($value['birthday'])); ?></td>
-                <td><?php echo ex_typenum($value['type']); ?></td>
-                <td><?php echo date('Y年n月j日　G時i分s秒', strtotime($value['newDate'])); ?></td>
-            </tr>
-        <?php
+        //データが存在しない場合にエラーが表示される処理を追加
+        if(!empty($result)){
+            ?>
+            <!--検索結果を表示する処理を移動-->
+            <table border=1>
+                <tr>
+                    <th>名前</th>
+                    <th>生年</th>
+                    <th>種別</th>
+                    <th>登録日時</th>
+                </tr>
+
+            <?php
+            foreach($result as $value){
+            ?>
+                <tr>
+                    <td><a href="<?php echo RESULT_DETAIL ?>?id=<?php echo $value['userID']?>"><?php echo $value['name']; ?></a></td>
+                    <!--生年月日が表示されていたのを生年のみが表示されるように修正-->
+                    <td><?php echo date('Y年', strtotime($value['birthday'])); ?></td>
+                    <td><?php echo ex_typenum($value['type']); ?></td>
+                    <td><?php echo date('Y年n月j日　G時i分s秒', strtotime($value['newDate'])); ?></td>
+                </tr>
+            <?php
+            }
+        }else{
+            echo 'データが存在しません。<br>';
         }
         ?>
         </table>
