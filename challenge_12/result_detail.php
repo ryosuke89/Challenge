@@ -27,10 +27,14 @@ require_once '../common/dbaccesUtil.php';
 
     <!--update.phpのURLに該当するuserIDを追加する処理を追加-->
     <form action="<?php echo UPDATE; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
+        <!--URLでupdate.phpに直接アクセスするとエラーが表示される処理を追加するためにhiddenを追加-->
+        <input type="hidden" name="mode" value="KOUSHIN">
         <input type="submit" name="update" value="変更" style="width:100px">
     </form>
     <!--delete.phpのURLに該当するuserIDを追加する処理を追加-->
     <form action="<?php echo DELETE; ?>?id=<?php echo $result[0]['userID']; ?>" method="POST">
+        <!--URLでdelete.phpに直接アクセスするとエラーが表示される処理を追加するためにhiddenを追加-->
+        <input type="hidden" name="mode" value="SAKUJYO">
         <input type="submit" name="delete" value="削除"style="width:100px">
     </form>
 
