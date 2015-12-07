@@ -12,6 +12,8 @@ require_once '../common/dbaccesUtil.php';
 </head>
   <body>
     <?php
+    //result_detail.phpへの遷移をログに出力する処理を追加
+    log_access(RESULT_DETAIL);
     //userIDを指定せずURLで直接アクセスした場合にエラーが表示される処理を追加
     if(!empty($_GET['id'])){
         $result = profile_detail($_GET['id']);
@@ -46,12 +48,18 @@ require_once '../common/dbaccesUtil.php';
             <?php
             }else{
                 echo 'データの検索に失敗しました。次記のエラーにより処理を中断します:'.$result;
+                //データの検索に失敗のエラーをログに出力する処理を追加
+                log_error('データの検索に失敗');
             }
         }else{
             echo 'データが存在しません。<br>';
+            //データが存在しないエラーをログに出力する処理を追加
+            log_error('データの存在なし');
         }
     }else{
         echo 'データが存在しません。<br>';
+        //データが存在しないエラーをログに出力する処理を追加
+        log_error('データの存在なし');
     }
     echo return_top();
     ?>
