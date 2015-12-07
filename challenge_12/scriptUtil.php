@@ -54,10 +54,9 @@ function bind_p2s($name){
     }
 }
 
-//ログ出力の関数の追加
-function log_access(){
-    $httpReferer=$_SERVER['HTTP_REFERER'];
-    $fp = fopen('../logs/log.txt', 'w');
-    fwrite($fp, $httpReferer . "\r\n");
+//ログを出力する関数の追加
+function log_access($file, $text){
+    $fp = fopen('../logs/log.txt', 'a');
+    fwrite($fp, date('Y-m-d H:i:s') . '　' . $file . $text . "\r\n");
     fclose($fp);
 }
