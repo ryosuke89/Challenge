@@ -28,11 +28,8 @@ require_once '../common/dbaccesUtil.php';
         }
 
         $result = null;
-        if(empty($_GET['name']) && empty($_GET['year']) && empty($_GET['type'])){
-            $result = serch_all_profiles();
-        }else{
-            $result = serch_profiles($_GET['name'],$_GET['year'],$_GET['type']);
-        }
+        //全ての入力がない場合の関数、条件分岐を削除
+        $result = serch_profiles($_GET['name'],$_GET['year'],$_GET['type']);
 
         //データが存在しない場合にエラーが表示される処理を追加
         if(!empty($result)){
