@@ -9,6 +9,8 @@
 </head>
   <body>
     <form action="<?php echo SEARCH_RESULT ?>" method="GET">
+        <!--search.phpへの遷移をログに出力する処理を追加-->
+        <?php log_access(SEARCH); ?>
 
         名前:
         <br>
