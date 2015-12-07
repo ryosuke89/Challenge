@@ -50,26 +50,7 @@ function insert_profiles($name, $birthday, $type, $tell, $comment){
     return null;
 }
 
-function serch_all_profiles(){
-    //db接続を確立
-    $search_db = connect2MySQL();
-
-    $search_sql = "SELECT * FROM user_t";
-
-    //クエリとして用意
-    $seatch_query = $search_db->prepare($search_sql);
-
-    //SQLを実行
-    try{
-        $seatch_query->execute();
-    } catch (PDOException $e) {
-        $seatch_query=null;
-        return $e->getMessage();
-    }
-
-    //全レコードを連想配列として返却
-    return $seatch_query->fetchAll(PDO::FETCH_ASSOC);
-}
+//関数serch_profilesを使えば全件検索できるため、関数serch_all_profilesを削除
 
 /**
  * 複合条件検索を行う
