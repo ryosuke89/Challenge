@@ -12,8 +12,8 @@ require_once '../common/dbaccesUtil.php';
     <body>
         <h1>検索結果</h1>
         <?php
-        //ログ出力の関数の呼び出し
-        log_access();
+        //search_result.phpへの遷移をログに出力する処理を追加
+        log_access(SEARCH_RESULT);
         //入力がない場合nullにする処理を追加
         if(empty($_GET['name'])){
             $_GET['name'] = null;
@@ -30,6 +30,22 @@ require_once '../common/dbaccesUtil.php';
         $result = null;
         //全ての入力がない場合の関数、条件分岐を削除
         $result = serch_profiles($_GET['name'],$_GET['year'],$_GET['type']);
+
+        //検索条件をログに出力する処理を追加
+        if(empty($_GET['name']) && empty($_GET['year']) && empty($_GET['type'])){
+            log_syori('全件検索を実行');
+        }else{
+            log_syori('検索条件');
+        }
+        if(!empty($_GET['name'])){
+            log_syori('名前:' . $_GET['name']);
+        }
+        if(!empty($_GET['year'])){
+            log_syori('生年:' . $_GET['year'] . '年');
+        }
+        if(!empty($_GET['type'])){
+            log_syori('種別:' . ex_typenum($_GET['type']));
+        }
 
         //データが存在しない場合にエラーが表示される処理を追加
         if(!empty($result)){
@@ -57,6 +73,8 @@ require_once '../common/dbaccesUtil.php';
             }
         }else{
             echo 'データが存在しません。<br>';
+            //データが存在しないエラーをログに出力する処理を追加
+            log_error('データの存在なし');
         }
         ?>
         </table>
