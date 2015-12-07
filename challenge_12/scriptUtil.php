@@ -54,9 +54,23 @@ function bind_p2s($name){
     }
 }
 
-//ログを出力する関数の追加
-function log_access($file, $text){
+//画面遷移のログを出力する関数の追加
+function log_access($file){
     $fp = fopen('../logs/log.txt', 'a');
-    fwrite($fp, date('Y-m-d H:i:s') . '　' . $file . $text . "\r\n");
+    fwrite($fp, "\r\n" . date('Y-m-d H:i:s') . '　' . $file . 'に遷移');
+    fclose($fp);
+}
+
+//処理のログを出力する関数の追加
+function log_syori($syori){
+    $fp = fopen('../logs/log.txt', 'a');
+    fwrite($fp, '　' . $syori);
+    fclose($fp);
+}
+
+//エラーのログを出力する関数の追加
+function log_error($error){
+    $fp = fopen('../logs/log.txt', 'a');
+    fwrite($fp, '　ERROR:' . $error);
     fclose($fp);
 }
