@@ -8,7 +8,7 @@
 </head>
 <body>
     <!--insert.phpへの遷移をログに出力する処理を追加-->
-    <?php log_access(INSERT,'に遷移'); ?>
+    <?php log_access(INSERT); ?>
     <?php session_start();//再入力時用 ?>
     <form action="<?php echo INSERT_CONFIRM ?>" method="POST">
 
