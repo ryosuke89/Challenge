@@ -10,9 +10,13 @@
 </head>
     <body>
     <?php
+    //insert_result.phpへの遷移をログに出力する処理を追加
+    log_access(INSERT_RESULT);
     //PHPのエラーが表示されないように条件分岐を変更
     if(empty($_POST['mode'])){
         echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
+        //アクセスルートが不正のエラーをログに出力する処理を追加
+        log_error('アクセスルートが不正');
     }elseif($_POST['mode']=="RESULT"){
 
         session_start();
@@ -28,6 +32,8 @@
 
         //エラーが発生しなければ表示を行う
         if(!isset($result)){
+        //データを登録した場合にログに出力する処理を追加
+        log_syori('データを登録しました。名前:' . $name);
         ?>
         <h1>登録結果画面</h1><br>
         名前:<?php echo $name;?><br>
@@ -39,6 +45,8 @@
         <?php
         }else{
             echo 'データの挿入に失敗しました。次記のエラーにより処理を中断します:'.$result;
+            //データの挿入に失敗のエラーをログに出力する処理を追加
+            log_error('データの挿入に失敗');
         }
     }
     echo return_top();
