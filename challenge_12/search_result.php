@@ -12,6 +12,8 @@ require_once '../common/dbaccesUtil.php';
     <body>
         <h1>検索結果</h1>
         <?php
+        //ログ出力の関数の呼び出し
+        log_access();
         //入力がない場合nullにする処理を追加
         if(empty($_GET['name'])){
             $_GET['name'] = null;
