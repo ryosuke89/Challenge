@@ -11,9 +11,13 @@ require_once '../common/dbaccesUtil.php';
 </head>
 <body>
     <?php
+    //update.phpへの遷移をログに出力する処理を追加
+    log_access(UPDATE);
     //詳細画面から「変更」ボタンを押した場合のみ処理を行う条件分岐を追加
     if(empty($_POST['mode'])){
         echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
+        //URLで直接アクセスした場合にエラーをログに出力する処理を追加
+        log_error('アクセスルートが不正です。');
     }elseif($_POST['mode']=="KOUSHIN"){
 
         $result = profile_detail($_GET['id']);
