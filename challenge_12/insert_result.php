@@ -32,17 +32,17 @@
 
         //エラーが発生しなければ表示を行う
         if(!isset($result)){
-        //データを登録した場合にログに出力する処理を追加
-        log_syori('データを登録しました。名前:' . $name);
-        ?>
-        <h1>登録結果画面</h1><br>
-        名前:<?php echo $name;?><br>
-        生年月日:<?php echo $birthday;?><br>
-        種別:<?php echo ex_typenum($type);?><br>
-        電話番号:<?php echo $tell;?><br>
-        自己紹介:<?php echo $comment;?><br><br>
-        以上の内容で登録しました。<br>
-        <?php
+            //データを登録した場合にログに出力する処理を追加
+            log_syori('データを登録しました。名前:' . $name);
+            ?>
+            <h1>登録結果画面</h1><br>
+            名前:<?php echo $name;?><br>
+            生年月日:<?php echo $birthday;?><br>
+            種別:<?php echo ex_typenum($type);?><br>
+            電話番号:<?php echo $tell;?><br>
+            自己紹介:<?php echo $comment;?><br><br>
+            以上の内容で登録しました。<br>
+            <?php
         }else{
             echo 'データの挿入に失敗しました。次記のエラーにより処理を中断します:'.$result;
             //データの挿入に失敗した場合にエラーをログに出力する処理を追加
