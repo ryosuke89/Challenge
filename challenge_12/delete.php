@@ -11,9 +11,13 @@ require_once '../common/dbaccesUtil.php';
 </head>
   <body>
     <?php
+    //delete.phpへの遷移をログに出力する処理を追加
+    log_access(DELETE);
     //詳細画面から「削除」ボタンを押した場合のみ処理を行う条件分岐を追加
     if(empty($_POST['mode'])){
         echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
+        //URLで直接アクセスした場合にエラーをログに出力する処理を追加
+        log_error('アクセスルートが不正です。');
     }elseif($_POST['mode']=="SAKUJYO"){
 
         $result = profile_detail($_GET['id']);
@@ -45,6 +49,8 @@ require_once '../common/dbaccesUtil.php';
         <?php
         }else{
             echo 'データの取得に失敗しました。次記のエラーにより処理を中断します:'.$result;
+            //データの取得に失敗した場合にエラーをログに出力する処理を追加
+            log_error('データの取得に失敗しました。');
         }
     }
         echo return_top();
