@@ -11,9 +11,13 @@ require_once '../common/dbaccesUtil.php';
 </head>
   <body>
     <?php
+    //update_result.phpへの遷移をログに出力する処理を追加
+    log_access(UPDATE_RESULT);
     //変更入力画面から「以上の内容で更新を行う」ボタンを押した場合のみ処理を行う条件分岐を追加
     if(empty($_POST['mode'])){
         echo 'アクセスルートが不正です。もう一度トップページからやり直してください<br>';
+        //URLで直接アクセスした場合にエラーをログに出力する処理を追加
+        log_error('アクセスルートが不正です。');
     }elseif($_POST['mode']=="KOUSHIN_RESULT"){
 
         //入力項目が不足している場合にエラーが表示される処理の追加
@@ -34,6 +38,8 @@ require_once '../common/dbaccesUtil.php';
 
             //エラーが発生しなければ表示を行う
             if(!isset($result)){
+                //データを更新した場合にログに出力する処理を追加
+                log_syori('データを更新しました。名前:' . $name);
                 ?>
                 <h1>更新確認</h1><br>
                 <!--更新内容の表示処理を追加-->
@@ -46,8 +52,12 @@ require_once '../common/dbaccesUtil.php';
                 <?php
             }else{
                 echo 'データの更新に失敗しました。次記のエラーにより処理を中断します:'.$result;
+                //データの更新に失敗した場合にエラーをログに出力する処理を追加
+                log_error('データの更新に失敗しました。');
             }
         }else{
+            //入力項目が不完全の場合にエラーをログに出力する処理を追加
+            log_error('入力項目が不完全です。');
             ?>
             <h1>入力項目が不完全です</h1><br>
             再度入力を行ってください<br>
