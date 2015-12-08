@@ -33,7 +33,7 @@ require_once '../common/dbaccesUtil.php';
 
         //検索条件をログに出力する処理を追加
         if(empty($_GET['name']) && empty($_GET['year']) && empty($_GET['type'])){
-            log_syori('全件検索を実行');
+            log_syori('全件検索を実行しました。');
         }else{
             log_syori('検索条件');
         }
@@ -73,8 +73,8 @@ require_once '../common/dbaccesUtil.php';
             }
         }else{
             echo 'データが存在しません。<br>';
-            //データが存在しないエラーをログに出力する処理を追加
-            log_error('データの存在なし');
+            //データが存在しない場合にエラーをログに出力する処理を追加
+            log_error('データが存在しません。');
         }
         ?>
         </table>
