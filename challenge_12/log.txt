@@ -1,1 +1,19 @@
-http://localhost/develop/app/search.php
+
+2015-12-08 10:45:45　トップ画面に遷移
+2015-12-08 10:45:46　insert.phpに遷移
+2015-12-08 10:45:58　insert_confirm.phpに遷移　ERROR:入力項目が不完全です。
+2015-12-08 10:46:00　insert.phpに遷移
+2015-12-08 10:46:03　insert_confirm.phpに遷移
+2015-12-08 10:46:04　insert_result.phpに遷移　データを登録しました。名前:suzuki
+2015-12-08 10:46:06　トップ画面に遷移
+2015-12-08 10:46:07　search.phpに遷移
+2015-12-08 10:46:14　search_result.phpに遷移　検索条件　生年:1950年　種別:エンジニア
+2015-12-08 10:46:15　result_detail.phpに遷移
+2015-12-08 10:46:17　update.phpに遷移
+2015-12-08 10:46:21　update_result.phpに遷移　データを更新しました。名前:suzuki
+2015-12-08 10:46:22　トップ画面に遷移
+2015-12-08 10:46:23　search.phpに遷移
+2015-12-08 10:46:24　search_result.phpに遷移　全件検索を実行しました。
+2015-12-08 10:46:26　result_detail.phpに遷移
+2015-12-08 10:46:27　delete.phpに遷移
+2015-12-08 10:46:28　delete_result.phpに遷移　データを削除しました。
