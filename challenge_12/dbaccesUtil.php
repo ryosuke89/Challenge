@@ -4,7 +4,7 @@
 function connect2MySQL(){
     try{
         //charset、ユーザー名、パスワードを変更
-        $pdo = new PDO('mysql:host=localhost;dbname=Challenge_db;charset=cp932','kato','kr890122');
+        $pdo = new PDO('mysql:host=localhost;dbname=Challenge_db;charset=utf8','kato','kr890122');
         //SQL実行時のエラーをtry-catchで取得できるように設定
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;
