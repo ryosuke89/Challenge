@@ -59,6 +59,8 @@ function insert_profiles($name, $birthday, $type, $tell, $comment){
  * @param type $type
  * @return type
  */
+
+//名前、生年、種別、登録日の表示を行う。入力が無い場合は全件表示し、複数入力した場合は複合検索。
 function serch_profiles($name=null,$year=null,$type=null){
     //db接続を確立
     $search_db = connect2MySQL();
@@ -109,8 +111,7 @@ function serch_profiles($name=null,$year=null,$type=null){
     return $seatch_query->fetchAll(PDO::FETCH_ASSOC);
 }
 
-
-
+//指定したIDのレコードを表示する。
 function profile_detail($id){
     //db接続を確立
     $detail_db = connect2MySQL();
@@ -135,6 +136,7 @@ function profile_detail($id){
 }
 
 //更新の処理が行えるように関数update_profileを追加
+//レコードの更新を行う。
 function update_profile($id, $name, $birthday, $type, $tell, $comment){
     //db接続を確立
     $update_db = connect2MySQL();
@@ -169,6 +171,7 @@ function update_profile($id, $name, $birthday, $type, $tell, $comment){
     return null;
 }
 
+//レコードの削除を行う。
 function delete_profile($id){
     //db接続を確立
     $delete_db = connect2MySQL();
