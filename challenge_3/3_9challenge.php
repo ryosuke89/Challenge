@@ -11,7 +11,8 @@ function show_data($id){
 
 $array = array(1, 2, 3);
 foreach($array as $id){
-	foreach(show_data($id) as $key => $value){
+	$array_data = show_data($id);
+	foreach($array_data as $key => $value){
 		if($key == 0 || $value == null){
 			continue;
 		}
