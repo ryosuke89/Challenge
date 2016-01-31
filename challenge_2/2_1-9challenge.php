@@ -3,15 +3,15 @@
 //課題1
 $num = 1;
 switch($num) {
-   case 1:
-      echo 'one';
-      break;
-   case 2:
-      echo 'two';
-      break;
-   default:
-      echo '想定外';
-      break;
+    case 1:
+        echo 'one';
+        break;
+    case 2:
+        echo 'two';
+        break;
+    default:
+        echo '想定外';
+        break;
 }
 
 echo "<br>";
@@ -19,48 +19,41 @@ echo "<br>";
 //課題2
 $num = 'A';
 switch($num) {
-   case 'A':
-      echo '英語';
-      break;
-   case 'あ':
-      echo '日本語';
-      break;
+    case 'A':
+        echo '英語';
+        break;
+    case 'あ':
+        echo '日本語';
+        break;
 }
-
 echo "<br>";
 
 //課題3
 $kakeru = 8;
 for($i=1; $i<20; $i++) {
-   $kakeru = $kakeru * 8;
+    $kakeru = $kakeru * 8;
 }
 echo $kakeru . "<br>";
 
 //課題4
 $moji = 'A';
 for($i=0; $i<29; $i++) {
-   $moji = $moji . 'A';
+    $moji = $moji . 'A';
 }
-
 echo $moji . "<br>";
 
 //課題5
 $sum = 0;
 for($i=0; $i<=100; $i++) {
-   $sum = $sum + $i;
+    $sum = $sum + $i;
 }
 echo $sum . "<br>";
 
 //課題6
-$key = 1000;
-while ($key > 100 ) {
-  switch($key) {
-     case $key:
-       echo $key = $key / 2 . ',';
-       break;
-  }
+$waru = 1000;
+while ($waru >= 100 ) {
+    echo $waru = $waru / 2 . ',';
 }
-
 echo "<br>";
 
 //課題7
