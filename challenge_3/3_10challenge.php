@@ -12,13 +12,14 @@ function show_data($id){
 $limit = 2;
 $array = array(1, 2, 3);
 foreach($array as $id){
-	foreach(show_data($id) as $key => $value){
+	$array_data = show_data($id);
+	foreach($array_data as $key => $value){
 		if($key == 0 || $value == null){
 			continue;
 		}
 		echo "$value <br>";
 	}
-		if($id == $limit){
-			break;
-		}
+	if($id == $limit){
+		break;
+	}
 }
